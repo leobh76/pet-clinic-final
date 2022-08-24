@@ -15,19 +15,19 @@ export default function Table() {
       <thead>
         <tr className="bg-gray-800">
           <th className="px-16 py-2">
-            <span className="text-gray-200">Owner's name</span>
+            <span className="text-gray-200">Owner name</span>
           </th>
           <th className="px-16 py-2">
             <span className="text-gray-200">Phone</span>
           </th>
           <th className="px-16 py-2">
-            <span className="text-gray-200">Pet's name</span>
+            <span className="text-gray-200">Pet name</span>
           </th>
           <th className="px-16 py-2">
-            <span className="text-gray-200">Pet's age</span>
+            <span className="text-gray-200">Pet age</span>
           </th>
           <th className="px-16 py-2">
-            <span className="text-gray-200">Pet's type</span>
+            <span className="text-gray-200">Pet type</span>
           </th>
           <th className="px-16 py-2">
             <span className="text-gray-200">Actions</span>
