@@ -1,26 +1,32 @@
-import { useReducer } from "react";
 import { BiEdit } from "react-icons/bi";
-import Success from "./success";
-import Bug from "./bug";
-import { useQuery } from "react-query";
-import { getUser } from "../lib/helper";
+import { useQuery, useMutation, useQueryClient } from "react-query";
+import { getUser, getUsers, updateUser } from "../lib/helper";
+import { useRouter } from "next/router";
 
-export default function UpdateAppointmentForm(formId, formData, setFormData) {
+export default function UpdateAppointmentForm({ formId, formData, setFormData }) {
+  const router = useRouter();
+  const queryClient = useQueryClient();
 
   const { isLoading, isError, data, error } = useQuery(["users", formId], () =>
     getUser(formId)
   );
+
+  const UpdateMutation = useMutation((newData) => updateUser(formId, newData), {
+    onSuccess: async (data) => {
+      queryClient.prefetchQuery("users", getUsers);
+    },
+  });
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error</div>;
 
   const { ownerName, phone, petName, petAge, petBirthDate, petType } = data;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (Object.keys(formData).length == 0)
-      return console.log("Can't submit empty appointment!");
-    console.log(formData);
+    let updated = Object.assign(data, formData);
+    console.log(updated);
+    await UpdateMutation.mutate(updated);
   };
 
   return (
@@ -120,8 +126,11 @@ export default function UpdateAppointmentForm(formId, formData, setFormData) {
         </div>
       </div>
 
-      <button className="flex justify-center text-md w-1/4 bg-yellow-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500">
-        Update{" "}
+      <button
+        onClick={() => router.reload()}
+        className="flex justify-center text-md w-1/4 bg-yellow-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500"
+      >
+        Update
         <span className="px-1">
           <BiEdit size={23} />
         </span>

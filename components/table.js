@@ -2,12 +2,12 @@ import { BiEdit, BiTrashAlt } from "react-icons/bi";
 import { getUsers } from "../lib/helper";
 import { useQuery } from "react-query";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleChangeAction, updateAction } from "../redux/reducer";
+import { toggleChangeAction, updateAction, deleteAction } from "../redux/reducer";
 
 export default function Table() {
   const { isLoading, isError, data, error } = useQuery("users", getUsers);
 
-  if (isLoading) return <div>Appointment is loading...</div>;
+  if (isLoading) return <div>Appointments are loading...</div>;
   if (isError) return <div>Error: {error}</div>;
 
   return (
@@ -54,8 +54,14 @@ function Tr({ _id, ownerName, phone, petName, petAge, petType }) {
     }
   };
 
+  const onDelete = () => {
+    if (!visible) {
+      dispatch(deleteAction(_id));
+    }
+  };
+
   return (
-    <tr className="bg-gray-50 text-center">
+    <tr className="border border-gray-300 bg-gray-50 text-center">
       <td className="px-16 py-2 flex flex-row items-center">
         <span className="text-center ml-2 font-semibold">
           {ownerName || "Unknown"}
@@ -77,7 +83,7 @@ function Tr({ _id, ownerName, phone, petName, petAge, petType }) {
         <button className="cursor" onClick={onUpdate}>
           <BiEdit size={23} color="gray" />
         </button>
-        <button className="cursor">
+        <button className="cursor" onClick={onDelete}>
           <BiTrashAlt size={23} color={"rgb(161, 32, 32)"} />
         </button>
       </td>

@@ -1,9 +1,5 @@
 import connectMongo from "../../../database/conn";
-import {
-  getUser,
-  putUser,
-  deleteUser,
-} from "../../../database/controller";
+import { getUser, putUser, deleteUser } from "../../../database/controller";
 
 export default async function handler(req, res) {
   connectMongo().catch(() =>

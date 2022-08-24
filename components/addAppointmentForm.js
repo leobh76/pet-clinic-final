@@ -1,12 +1,14 @@
-import { useReducer } from "react";
 import { BiPlus } from "react-icons/bi";
 import Success from "./success";
 import Bug from "./bug";
 import { useQueryClient, useMutation } from "react-query";
 import { addUser, getUsers } from "../lib/helper";
+import { useRouter } from "next/router";
 
 export default function AddAppointmentForm({ formData, setFormData }) {
+  const router = useRouter();
   const queryClient = useQueryClient();
+
   const addMutation = useMutation(addUser, {
     onSuccess: () => {
       queryClient.prefetchQuery("users", getUsers);
@@ -17,6 +19,7 @@ export default function AddAppointmentForm({ formData, setFormData }) {
     e.preventDefault();
     if (Object.keys(formData).length == 0)
       return console.log("Can't submit empty appointment!");
+
     let { ownerName, phone, petName, petAge, petBirthDate, petType } = formData;
 
     const model = {
@@ -82,7 +85,6 @@ export default function AddAppointmentForm({ formData, setFormData }) {
           onChange={setFormData}
         />
       </div>
-
       <div className="flex gap-10 items-center">
         <div className="form-check">
           <input
@@ -124,8 +126,11 @@ export default function AddAppointmentForm({ formData, setFormData }) {
           </label>
         </div>
       </div>
-
-      <button className="flex justify-center text-md w-1/4 bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500">
+      <button
+        onClick={() => router.reload()}
+        type="submit"
+        className="flex justify-center text-md w-1/4 bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500"
+      >
         Add
         <span className="px-1">
           <BiPlus size={23} />
