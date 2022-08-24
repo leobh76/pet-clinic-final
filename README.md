@@ -13,4 +13,4 @@ This a pet clinic app, designed to have all of the CRUD functionalities. Made fo
 * Next.js (React)
 * Tailwind CSS
 * Chakra UI
-* MongoDB
+* MongoDB (with Mongoose)
