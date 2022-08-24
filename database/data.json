@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "ownerName": "Ale Hurovich",
+        "phone": "22686522",
+        "petName": "Petota",
+        "petAge": "6 years",
+        "petBirthDate": "05/06/2017",
+        "petType": "Cat"
+    },
+    {
+        "id": 2,
+        "ownerName": "Leo Hurovich",
+        "phone": "12321312",
+        "petName": "aSDADS",
+        "petAge": "6 years",
+        "petBirthDate": "05/06/2017",
+        "petType": "Dog"
+    },
+    {
+        "id": 3,
+        "ownerName": "Rafael Hurovich",
+        "phone": "565674",
+        "petName": "blblblb",
+        "petAge": "6 years",
+        "petBirthDate": "05/06/2017",
+        "petType": "Bird"
+    },
+    {
+        "id": 4,
+        "ownerName": "Estela Hurovich",
+        "phone": "67555555",
+        "petName": "lalaal",
+        "petAge": "6 years",
+        "petBirthDate": "05/06/2017",
+        "petType": "Bird"
+    },
+    {
+        "id": 5,
+        "ownerName": "Jose Hurovich",
+        "phone": "66666",
+        "petName": "rara",
+        "petAge": "6 years",
+        "petBirthDate": "05/06/2017",
+        "petType": "Dog"
+    }
+]
