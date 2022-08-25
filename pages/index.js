@@ -39,7 +39,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="py-5 mx-20">
+      <main className="py-5 mx-10">
         <h1 className="text-xl md:text-5xl text-center font-bold py-5">
           Pet Clinic
         </h1>
