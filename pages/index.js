@@ -31,8 +31,6 @@ export default function Home() {
     await dispatch(deleteAction(null));
   };
 
-  console.log(process.env.MONGO_URI);
-
   return (
     <section>
       <Head>

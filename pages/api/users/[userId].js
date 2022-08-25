@@ -4,11 +4,10 @@ import { getUser, putUser, deleteUser } from "../../../database/controller";
 export default async function handler(req, res) {
   connectMongo().catch(() =>
     res.status(405).json({ error: "Error in the connection!" })
-    );
-    
-    // type of request
-    const { method } = req;
-    console.log("middleware")
+  );
+
+  // type of request
+  const { method } = req;
 
   switch (method) {
     case "GET":
