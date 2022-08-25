@@ -32,7 +32,6 @@ export default function Home() {
   };
 
   console.log(process.env.MONGO_URI);
-  console.log(MONGO_URI);
 
   return (
     <section>
