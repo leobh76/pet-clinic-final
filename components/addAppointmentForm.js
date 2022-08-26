@@ -129,7 +129,7 @@ export default function AddAppointmentForm({ formData, setFormData }) {
       <button
         onClick={() => router.reload()}
         type="submit"
-        className="flex justify-center text-md w-1/4 bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500"
+        className="flex justify-center text-md bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500"
       >
         Add
         <span className="px-1">
