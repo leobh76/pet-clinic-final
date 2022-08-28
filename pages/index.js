@@ -13,17 +13,13 @@ export default function Home() {
   const queryClient = useQueryClient();
   
   const { isLoading, isError } = useQuery("users", getUsers);
-
-  if (isLoading) return <div>Appointments are loading...</div>;
-  if (isError) return <div>Error: {error}</div>;
-
-
+  
   const dispatch = useDispatch();
-
+  
   const handler = () => {
     dispatch(toggleChangeAction());
   };
-
+  
   const deleteHandler = async () => {
     if (deleteId) {
       await deleteUser(deleteId);
@@ -31,11 +27,14 @@ export default function Home() {
       await dispatch(deleteAction(null));
     }
   };
-
+  
   const cancelHandler = async () => {
     console.log("cancel");
     await dispatch(deleteAction(null));
   };
+
+  if (isLoading) return <div>Appointments are loading...</div>;
+  if (isError) return <div>Error: {error}</div>;
 
   return (
     <section>
