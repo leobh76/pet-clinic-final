@@ -28,7 +28,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
   };
 
   return (
-    <form className="grid grid-cols-2 w-full gap-4" onSubmit={handleSubmit}>
+    <form className="text-lg grid grid-cols-2 w-full gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
           type="text"
@@ -125,7 +125,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
       </div>
 
       <button
-        className="flex justify-center text-md bg-yellow-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-yellow-500 hover:text-yellow-500"
+        className="flex justify-center text-lg bg-yellow-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-yellow-500 hover:text-yellow-500"
       >
         Update
         <span className="px-1">

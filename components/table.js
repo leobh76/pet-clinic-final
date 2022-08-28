@@ -2,7 +2,11 @@ import { BiEdit, BiTrashAlt } from "react-icons/bi";
 import { getUsers } from "../lib/helper";
 import { useQuery } from "react-query";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleChangeAction, updateAction, deleteAction } from "../redux/reducer";
+import {
+  toggleChangeAction,
+  updateAction,
+  deleteAction,
+} from "../redux/reducer";
 
 export default function Table() {
   const { isLoading, isError, data, error } = useQuery("users", getUsers);
@@ -62,7 +66,7 @@ function Tr({ _id, ownerName, phone, petName, petAge, petType }) {
 
   return (
     <tr className="border border-gray-300 bg-gray-50 text-center">
-      <td className="text-xl px-5 py-2 flex justify-center flex-row items-center">
+      <td className="text-xl px-5 py-2 flex justify-center flex-row">
         <span className="text-center ml-2 font-semibold">
           {ownerName || "Unknown"}
         </span>

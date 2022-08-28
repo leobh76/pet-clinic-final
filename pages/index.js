@@ -44,15 +44,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="py-5 mx-10">
+      <main className="pt-5 pb-1 mx-10">
         <h1 className="text-2xl md:text-2xl text-left font-bold py-2">
           Pet Clinic
         </h1>
 
-        <div className="container mr-auto flex justify-between py-5 mb-2 border-b">
+        <div className="container mr-auto flex justify-between py-5 border-b">
           <div className="left flex">
             <button
-              className="flex justify-center text-md bg-indigo-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-indigo-500 hover:text-indigo-500"
+              className="flex justify-center text-lg bg-indigo-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-indigo-500 hover:text-indigo-500"
               onClick={handler}
             >
               Add Appointment{" "}
@@ -76,8 +76,8 @@ export default function Home() {
 
 function DeleteComponent({ deleteHandler, cancelHandler }) {
   return (
-    <div className="flex gap-5">
-      <p>Are you sure?</p>
+    <div className="flex items-center gap-2">
+      <span>Are you sure?</span>
       <button
         onClick={deleteHandler}
         className="flex bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-green-500 hover:border-green-500 hover:text-gray-50"

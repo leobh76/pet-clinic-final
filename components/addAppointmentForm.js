@@ -38,7 +38,7 @@ export default function AddAppointmentForm({ formData, setFormData }) {
     return <Success message={"Added successfully!"}></Success>;
 
   return (
-    <form className="grid grid-cols-2 w-full gap-4" onSubmit={handleSubmit}>
+    <form className="text-lg grid grid-cols-2 w-full gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
           type="text"
@@ -126,7 +126,7 @@ export default function AddAppointmentForm({ formData, setFormData }) {
       </div>
       <button
         type="submit"
-        className="flex justify-center text-md bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500"
+        className="flex justify-center text-lg bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500"
       >
         Add
         <span className="px-1">
