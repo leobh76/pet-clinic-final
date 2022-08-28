@@ -5,12 +5,18 @@ import Form from "../components/form";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleChangeAction, deleteAction } from "../redux/reducer";
 import { deleteUser, getUsers } from "../lib/helper";
-import { useQueryClient } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 
 export default function Home() {
   const visible = useSelector((state) => state.app.client.toggleForm);
   const deleteId = useSelector((state) => state.app.client.deleteId);
   const queryClient = useQueryClient();
+  
+  const { isLoading, isError } = useQuery("users", getUsers);
+
+  if (isLoading) return <div>Appointments are loading...</div>;
+  if (isError) return <div>Error: {error}</div>;
+
 
   const dispatch = useDispatch();
 
