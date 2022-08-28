@@ -28,7 +28,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
   };
 
   return (
-    <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
+    <form className="grid grid-cols-2 w-full gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
           type="text"

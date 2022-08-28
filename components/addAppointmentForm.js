@@ -16,7 +16,7 @@ export default function AddAppointmentForm({ formData, setFormData }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Object.keys(formData).length == 0)
-      return console.log("Can't submit empty appointment!");
+      return alert("Can't submit empty appointment!");
 
     let { ownerName, phone, petName, petAge, petBirthDate, petType } = formData;
 
@@ -38,7 +38,7 @@ export default function AddAppointmentForm({ formData, setFormData }) {
     return <Success message={"Added successfully!"}></Success>;
 
   return (
-    <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
+    <form className="grid grid-cols-2 w-full gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
           type="text"
