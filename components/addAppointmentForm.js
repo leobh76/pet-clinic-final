@@ -3,10 +3,8 @@ import Success from "./success";
 import Bug from "./bug";
 import { useQueryClient, useMutation } from "react-query";
 import { addUser, getUsers } from "../lib/helper";
-import { useRouter } from "next/router";
 
 export default function AddAppointmentForm({ formData, setFormData }) {
-  const router = useRouter();
   const queryClient = useQueryClient();
 
   const addMutation = useMutation(addUser, {
@@ -127,7 +125,6 @@ export default function AddAppointmentForm({ formData, setFormData }) {
         </div>
       </div>
       <button
-        onClick={() => router.reload()}
         type="submit"
         className="flex justify-center text-md bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500"
       >
