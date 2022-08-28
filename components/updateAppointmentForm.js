@@ -128,7 +128,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
 
       <button
         onClick={() => router.reload()}
-        className="flex justify-center text-md w-1/4 bg-yellow-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500"
+        className="flex justify-center text-md bg-yellow-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-yellow-500 hover:text-yellow-500"
       >
         Update
         <span className="px-1">
