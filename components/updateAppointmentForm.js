@@ -28,12 +28,11 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
   };
 
   return (
-    <form className="text-lg grid grid-cols-2 w-full gap-4" onSubmit={handleSubmit}>
+    <form className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
           type="text"
           name="ownerName"
-          placeholder="Owner's name"
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
           onChange={setFormData}
           defaultValue={ownerName}
@@ -43,7 +42,6 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
         <input
           type="text"
           name="phone"
-          placeholder="Phone number"
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
           onChange={setFormData}
           defaultValue={phone}
@@ -53,7 +51,6 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
         <input
           type="text"
           name="petName"
-          placeholder="Pet's name"
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
           onChange={setFormData}
           defaultValue={petName}
@@ -63,7 +60,6 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
         <input
           type="text"
           name="petAge"
-          placeholder="Pet's age (e.g. 2 years and 3 months)"
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
           onChange={setFormData}
           defaultValue={petAge}
@@ -79,7 +75,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
         />
       </div>
 
-      <div className="flex gap-10 items-center">
+      <div className="flex gap-5 items-center">
         <div className="form-check">
           <input
             type="radio"
@@ -125,7 +121,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
       </div>
 
       <button
-        className="flex justify-center text-lg bg-yellow-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-yellow-500 hover:text-yellow-500"
+        className="flex justify-center bg-yellow-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-yellow-500 hover:text-yellow-500"
       >
         Update
         <span className="px-1">

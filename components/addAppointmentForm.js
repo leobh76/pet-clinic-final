@@ -38,13 +38,13 @@ export default function AddAppointmentForm({ formData, setFormData }) {
     return <Success message={"Added successfully!"}></Success>;
 
   return (
-    <form className="text-lg grid grid-cols-2 w-full gap-4" onSubmit={handleSubmit}>
+    <form className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
           type="text"
           name="ownerName"
           placeholder="Owner's name"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm text-sm"
           onChange={setFormData}
         />
       </div>
@@ -53,7 +53,7 @@ export default function AddAppointmentForm({ formData, setFormData }) {
           type="text"
           name="phone"
           placeholder="Phone number"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm"
           onChange={setFormData}
         />
       </div>
@@ -62,7 +62,7 @@ export default function AddAppointmentForm({ formData, setFormData }) {
           type="text"
           name="petName"
           placeholder="Pet's name"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm"
           onChange={setFormData}
         />
       </div>
@@ -70,8 +70,8 @@ export default function AddAppointmentForm({ formData, setFormData }) {
         <input
           type="text"
           name="petAge"
-          placeholder="Pet's age (e.g. 2 years and 3 months)"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          placeholder="Pet's age"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm"
           onChange={setFormData}
         />
       </div>
@@ -79,11 +79,11 @@ export default function AddAppointmentForm({ formData, setFormData }) {
         <input
           type="date"
           name="petBirthDate"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm"
           onChange={setFormData}
         />
       </div>
-      <div className="flex gap-10 items-center">
+      <div className="flex gap-5 items-center">
         <div className="form-check">
           <input
             type="radio"
@@ -126,7 +126,7 @@ export default function AddAppointmentForm({ formData, setFormData }) {
       </div>
       <button
         type="submit"
-        className="flex justify-center text-lg bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500"
+        className="flex justify-center bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-green-500 hover:text-green-500"
       >
         Add
         <span className="px-1">

@@ -52,7 +52,7 @@ export default function Home() {
         <div className="container mr-auto flex justify-between py-5 border-b">
           <div className="left flex">
             <button
-              className="flex justify-center text-lg bg-indigo-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-indigo-500 hover:text-indigo-500"
+              className="flex justify-center bg-indigo-500 text-white px-4 py-2 border rounded-md hover:bg-gray-50 hover:border-indigo-500 hover:text-indigo-500"
               onClick={handler}
             >
               Add Appointment{" "}
@@ -69,7 +69,9 @@ export default function Home() {
       </main>
 
       {/* table */}
-      <Table></Table>
+      <div className="overflow-x-auto">
+        <Table></Table>
+      </div>
     </section>
   );
 }
