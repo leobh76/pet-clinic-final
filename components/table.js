@@ -14,22 +14,22 @@ export default function Table() {
     <table className="min-w-full table-auto">
       <thead>
         <tr className="bg-gray-800">
-          <th className="px-5 py-2">
+          <th className="text-xl px-5 py-2">
             <span className="text-gray-200">Owner name</span>
           </th>
-          <th className="px-5 py-2">
+          <th className="text-xl px-5 py-2">
             <span className="text-gray-200">Phone</span>
           </th>
-          <th className="px-5 py-2">
+          <th className="text-xl px-5 py-2">
             <span className="text-gray-200">Pet name</span>
           </th>
-          <th className="px-5 py-2">
+          <th className="text-xl px-5 py-2">
             <span className="text-gray-200">Pet age</span>
           </th>
-          <th className="px-5 py-2">
+          <th className="text-xl px-5 py-2">
             <span className="text-gray-200">Pet type</span>
           </th>
-          <th className="px-5 py-2">
+          <th className="text-xl px-5 py-2">
             <span className="text-gray-200">Actions</span>
           </th>
         </tr>
@@ -62,24 +62,24 @@ function Tr({ _id, ownerName, phone, petName, petAge, petType }) {
 
   return (
     <tr className="border border-gray-300 bg-gray-50 text-center">
-      <td className="px-10 py-2 flex justify-center flex-row items-center">
+      <td className="text-xl px-5 py-2 flex justify-center flex-row items-center">
         <span className="text-center ml-2 font-semibold">
           {ownerName || "Unknown"}
         </span>
       </td>
-      <td className="px-10 py-2">
+      <td className="text-xl px-5 py-2">
         <span>{phone || "Unknown"}</span>
       </td>
-      <td className="px-10 py-2">
+      <td className="text-xl px-5 py-2">
         <span>{petName || "Unknown"}</span>
       </td>
-      <td className="px-10 py-2">
+      <td className="text-xl px-5 py-2">
         <span>{petAge || "Unknown"}</span>
       </td>
-      <td className="px-10 py-2">
+      <td className="text-xl px-5 py-2">
         <span>{petType || "Unknown"}</span>
       </td>
-      <td className="px-10 py-2 flex justify-around gap-5">
+      <td className="text-xl px-5 py-2 flex justify-around gap-1">
         <button className="cursor" onClick={onUpdate}>
           <BiEdit size={23} color="gray" />
         </button>
