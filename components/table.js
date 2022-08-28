@@ -62,7 +62,7 @@ function Tr({ _id, ownerName, phone, petName, petAge, petType }) {
 
   return (
     <tr className="border border-gray-300 bg-gray-50 text-center">
-      <td className="px-10 py-2 flex flex-row items-center">
+      <td className="px-10 py-2 flex justify-center flex-row items-center">
         <span className="text-center ml-2 font-semibold">
           {ownerName || "Unknown"}
         </span>
