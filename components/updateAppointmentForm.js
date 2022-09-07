@@ -33,7 +33,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
         <input
           type="text"
           name="ownerName"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm"
           onChange={setFormData}
           defaultValue={ownerName}
         />
@@ -42,7 +42,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
         <input
           type="text"
           name="phone"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm"
           onChange={setFormData}
           defaultValue={phone}
         />
@@ -51,7 +51,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
         <input
           type="text"
           name="petName"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm"
           onChange={setFormData}
           defaultValue={petName}
         />
@@ -60,7 +60,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
         <input
           type="text"
           name="petAge"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm"
           onChange={setFormData}
           defaultValue={petAge}
         />
@@ -69,7 +69,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
         <input
           type="date"
           name="petBirthDate"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm"
           onChange={setFormData}
           defaultValue={petBirthDate}
         />
