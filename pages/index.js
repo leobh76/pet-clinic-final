@@ -46,7 +46,7 @@ export default function Home() {
 
       <main className="pt-5 pb-1 mx-10">
         <h1 className="text-2xl md:text-2xl text-left font-bold py-2">
-          Pet Clinic
+          🐶 Pet Clinic
         </h1>
 
         <div className="container mr-auto flex justify-between py-5 border-b">
