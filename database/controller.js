@@ -4,7 +4,24 @@ import Users from "../model/user";
 // GET : http://localhost:3000/api/users
 export async function getUsers(req, res) {
   try {
-    const users = await Users.find({});
+    const {ownerName, petName, petType, sortByName, sortByPetName} = req.query;
+    
+    const query = {};
+    if (ownerName) query.ownerName = ownerName;
+    if (petName) query.petName = petName;
+    if (petType) {
+      if (petType.length === 1) {
+        query.petType = petType;
+      } else {
+        query.petType = {$in: petType};
+      }
+    }
+     
+    const sorter = {};
+    if (sortByName) sorter.ownerName = sortByName;
+    if (sortByPetName) sorter.petName = sortByPetName;
+
+    const users = await Users.find(query).sort(sorter);
 
     if (!users) return res.status(404).json({ error: "Data not found!" });
     res.status(200).json(users);
