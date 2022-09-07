@@ -7,6 +7,16 @@ import {
   updateAction,
   deleteAction,
 } from "../redux/reducer";
+import {
+  Input,
+  Button,
+  Checkbox,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverBody,
+  PopoverArrow,
+} from "@chakra-ui/react";
 
 export default function Table() {
   const { isLoading, isError, data, error } = useQuery("users", getUsers);
@@ -15,25 +25,56 @@ export default function Table() {
   if (isError) return <div>Error: {error}</div>;
 
   return (
-    <table className="min-w-full table-auto">
+    <table className="min-w-full table-auto my-5">
       <thead>
         <tr className="bg-gray-800">
-          <th className="px-5 py-2">
+          <th className="align-top px-5 py-2">
             <span className="text-gray-200">Owner name</span>
+            <br />
+            <Input
+              size="xs"
+              bg="white"
+              width="50"
+              placeholder="Search for an owner..."
+            />
           </th>
-          <th className="px-5 py-2">
+          <th className="align-top px-5 py-2">
             <span className="text-gray-200">Phone</span>
           </th>
-          <th className="px-5 py-2">
+          <th className="align-top px-5 py-2">
             <span className="text-gray-200">Pet name</span>
+            <br />
+            <Input
+              size="xs"
+              bg="white"
+              width="50"
+              placeholder="Search for an owner..."
+            />
           </th>
-          <th className="px-5 py-2">
+          <th className="align-top px-5 py-2">
             <span className="text-gray-200">Pet age</span>
           </th>
-          <th className="px-5 py-2">
-            <span className="text-gray-200">Pet type</span>
+          <th className="align-top px-5 py-2">
+            <span className="text-gray-200 mr-2">Pet type</span>
+            <Popover>
+              <PopoverTrigger>
+                <Button size="xs">˅</Button>
+              </PopoverTrigger>
+              <PopoverContent>
+                <PopoverArrow />
+                <PopoverBody>
+                  <Checkbox defaultChecked>Dog</Checkbox>
+                </PopoverBody>
+                <PopoverBody>
+                  <Checkbox defaultChecked>Cat</Checkbox>
+                </PopoverBody>
+                <PopoverBody>
+                  <Checkbox defaultChecked>Bird</Checkbox>
+                </PopoverBody>
+              </PopoverContent>
+            </Popover>
           </th>
-          <th className="px-5 py-2">
+          <th className="align-top px-5 py-2">
             <span className="text-gray-200">Actions</span>
           </th>
         </tr>
