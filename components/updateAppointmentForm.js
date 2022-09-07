@@ -10,7 +10,7 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
   );
 
   const UpdateMutation = useMutation((newData) => updateUser(formId, newData), {
-    onSuccess: async (data) => {
+    onSuccess: () => {
       queryClient.prefetchQuery("users", getUsers);
     },
   });
@@ -20,11 +20,11 @@ export default function UpdateAppointmentForm({ formId, formData, setFormData })
 
   const { ownerName, phone, petName, petAge, petBirthDate, petType } = data;
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     let updated = Object.assign(data, formData);
     console.log(updated);
-    await UpdateMutation.mutate(updated);
+    UpdateMutation.mutate(updated);
   };
 
   return (
