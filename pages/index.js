@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleChangeAction, deleteAction } from "../redux/reducer";
 import { deleteUser, getUsers } from "../lib/helper";
 import { useQuery, useQueryClient } from "react-query";
+// import { useReducer } from "react";
+// import { AddAppointmentModal } from "../components/addAppointmentModal";
 
 export default function Home() {
   const visible = useSelector((state) => state.app.client.toggleForm);
@@ -62,6 +64,7 @@ export default function Home() {
             </button>
           </div>
         </div>
+        {/* <AddAppointmentModal formData={formData} setFormData={setFormData}/> */}
         {deleteId ? DeleteComponent({ deleteHandler, cancelHandler }) : <></>}
 
         {/* collapsable form */}
