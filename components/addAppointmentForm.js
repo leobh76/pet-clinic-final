@@ -44,7 +44,7 @@ export default function AddAppointmentForm({ formData, setFormData }) {
           type="text"
           name="ownerName"
           placeholder="Owner's name"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm text-sm"
+          className="border w-full px-5 py-3 focus:outline-none rounded-md text-sm"
           onChange={setFormData}
         />
       </div>
