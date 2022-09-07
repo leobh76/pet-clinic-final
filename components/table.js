@@ -48,7 +48,7 @@ export default function Table() {
               size="xs"
               bg="white"
               width="50"
-              placeholder="Search for an owner..."
+              placeholder="Search for a pet..."
             />
           </th>
           <th className="align-top px-5 py-2">
