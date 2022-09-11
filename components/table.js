@@ -49,7 +49,7 @@ export default function Table() {
       }
       setDisplay(filteredAppointments);
     }
-  }, [filter1, filter2]);
+  }, [filter1, filter2, appointments]);
 
   if (isLoading) return <div>Appointments are loading...</div>;
   if (isError) return <div>Error: {error}</div>;
