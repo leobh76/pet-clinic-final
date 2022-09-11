@@ -22,8 +22,8 @@ import { useState, useEffect } from "react";
 export default function Table() {
   const [appointments, setAppointments] = useState([]);
   const [display, setDisplay] = useState([]);
-  const [filter1, setFilter1] = useState("");
-  const [filter2, setFilter2] = useState("");
+  const [ownerNameFilter, setOwnerNameFilter] = useState("");
+  const [petNameFilter, setPetNameFilter] = useState("");
 
   const { isLoading, isError, data, error } = useQuery("users", getUsers, {
     onSuccess: (data) => {
@@ -33,23 +33,23 @@ export default function Table() {
   });
 
   useEffect(() => {
-    if (!filter1 && !filter2) {
+    if (!ownerNameFilter && !petNameFilter) {
       setDisplay(appointments);
     } else {
       let filteredAppointments;
-      if (filter1) {
+      if (ownerNameFilter) {
         filteredAppointments = appointments.filter(item =>
-          item.ownerName.toLowerCase().includes(filter1.toLowerCase())
+          item.ownerName.toLowerCase().includes(ownerNameFilter.toLowerCase())
         );
       }
-      if (filter2) {
+      if (petNameFilter) {
         filteredAppointments = filteredAppointments.filter(item =>
-          item.petName.toLowerCase().includes(filter2.toLowerCase())
+          item.petName.toLowerCase().includes(petNameFilter.toLowerCase())
         );
       }
       setDisplay(filteredAppointments);
     }
-  }, [filter1, filter2, appointments]);
+  }, [ownerNameFilter, petNameFilter, appointments]);
 
   if (isLoading) return <div>Appointments are loading...</div>;
   if (isError) return <div>Error: {error}</div>;
@@ -66,7 +66,7 @@ export default function Table() {
               bg="white"
               width="50"
               placeholder="Search for an owner..."
-              onChange={(e) => setFilter1(e.target.value)}
+              onChange={(e) => setOwnerNameFilter(e.target.value)}
             />
           </th>
           <th className="align-top px-5 py-2">
@@ -80,7 +80,7 @@ export default function Table() {
               bg="white"
               width="50"
               placeholder="Search for a pet..."
-              onChange={(e) => setFilter2(e.target.value)}
+              onChange={(e) => setPetNameFilter(e.target.value)}
             />
           </th>
           <th className="align-top px-5 py-2">
