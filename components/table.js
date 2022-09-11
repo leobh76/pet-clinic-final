@@ -33,18 +33,17 @@ export default function Table() {
   });
 
   useEffect(() => {
-    debugger;
     if (!filter1 && !filter2) {
       setDisplay(appointments);
     } else {
       let filteredAppointments;
       if (filter1) {
-        filteredAppointments = appointments.filter((item) =>
+        filteredAppointments = appointments.filter(item =>
           item.ownerName.toLowerCase().includes(filter1.toLowerCase())
         );
       }
       if (filter2) {
-        filteredAppointments = filteredAppointments.filter((item) =>
+        filteredAppointments = filteredAppointments.filter(item =>
           item.petName.toLowerCase().includes(filter2.toLowerCase())
         );
       }
