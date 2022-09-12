@@ -104,7 +104,7 @@ export default function Table() {
   if (isError) return <div>Error: {error}</div>;
 
   return (
-    <table className="min-w-[1280px] m-auto table-auto my-5">
+    <table className="min-w-[1280px] m-auto table-auto mx-10 my-5">
       <thead>
         <tr className="bg-gray-800">
           <th className="align-top px-5 py-2">
