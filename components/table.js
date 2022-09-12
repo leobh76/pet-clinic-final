@@ -38,12 +38,14 @@ export default function Table() {
     } else {
       let filteredAppointments;
       if (ownerNameFilter) {
-        filteredAppointments = appointments.filter(item =>
+        filteredAppointments = appointments.filter((item) =>
           item.ownerName.toLowerCase().includes(ownerNameFilter.toLowerCase())
         );
+      } else {
+        filteredAppointments = appointments;
       }
       if (petNameFilter) {
-        filteredAppointments = filteredAppointments.filter(item =>
+        filteredAppointments = filteredAppointments.filter((item) =>
           item.petName.toLowerCase().includes(petNameFilter.toLowerCase())
         );
       }
