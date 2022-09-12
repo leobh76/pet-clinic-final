@@ -28,6 +28,9 @@ export default function Table() {
   const [petNameFilter, setPetNameFilter] = useState("");
   const [sortAscending, setSortAscending] = useState("");
   const [sortDescending, setSortDescending] = useState("");
+  const [dogFilter, setDogFilter] = useState("");
+  const [catFilter, setCatFilter] = useState("");
+  const [birdFilter, setBirdFilter] = useState("");
 
   const { isLoading, isError, data, error } = useQuery("users", getUsers, {
     onSuccess: (data) => {
@@ -68,6 +71,34 @@ export default function Table() {
       setDisplay([...display].sort((a, b) => (a[key] < b[key] ? 1 : -1)));
     }
   };
+
+  const onFilter = (key) => {
+    if (key === "Dog") {
+      if (dogFilter) {
+        setDogFilter("");
+        setDisplay(appointments);
+      } else {
+        setDogFilter(key);
+        setDisplay(appointments.filter((item) => item.petType === key));
+      }
+    } else if (key === "Cat") {
+      if (catFilter) {
+        setCatFilter("");
+        setDisplay(appointments);
+      } else {
+        setCatFilter(key);
+        setDisplay(appointments.filter((item) => item.petType === key));
+      }
+    } else if (key === "Bird") {
+      if (birdFilter) {
+        setBirdFilter("");
+        setDisplay(appointments);
+      } else {
+        setBirdFilter(key);
+        setDisplay(appointments.filter((item) => item.petType === key));
+      }
+    }
+  }
 
   if (isLoading) return <div>Appointments are loading...</div>;
   if (isError) return <div>Error: {error}</div>;
@@ -131,13 +162,13 @@ export default function Table() {
               <PopoverContent>
                 <PopoverArrow />
                 <PopoverBody>
-                  <Checkbox defaultChecked>Dog</Checkbox>
+                  <Checkbox onChange={(e) => onFilter("Dog")} >Dog</Checkbox>
                 </PopoverBody>
                 <PopoverBody>
-                  <Checkbox defaultChecked>Cat</Checkbox>
+                  <Checkbox onChange={(e) => onFilter("Cat")}>Cat</Checkbox>
                 </PopoverBody>
                 <PopoverBody>
-                  <Checkbox defaultChecked>Bird</Checkbox>
+                  <Checkbox onChange={(e) => onFilter("Bird")}>Bird</Checkbox>
                 </PopoverBody>
               </PopoverContent>
             </Popover>
