@@ -19,13 +19,15 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
+import { ArrowUpDownIcon } from "@chakra-ui/icons";
 
 export default function Table() {
   const [appointments, setAppointments] = useState([]);
   const [display, setDisplay] = useState([]);
   const [ownerNameFilter, setOwnerNameFilter] = useState("");
   const [petNameFilter, setPetNameFilter] = useState("");
+  const [sortAscending, setSortAscending] = useState("");
+  const [sortDescending, setSortDescending] = useState("");
 
   const { isLoading, isError, data, error } = useQuery("users", getUsers, {
     onSuccess: (data) => {
@@ -55,6 +57,18 @@ export default function Table() {
     }
   }, [ownerNameFilter, petNameFilter, appointments]);
 
+  const onSort = (key) => {
+    if (sortAscending === key) {
+      setSortAscending("");
+      setSortDescending(key);
+      setDisplay([...display].sort((a, b) => (a[key] > b[key] ? 1 : -1)));
+    } else {
+      setSortAscending(key);
+      setSortDescending("");
+      setDisplay([...display].sort((a, b) => (a[key] < b[key] ? 1 : -1)));
+    }
+  };
+
   if (isLoading) return <div>Appointments are loading...</div>;
   if (isError) return <div>Error: {error}</div>;
 
@@ -68,14 +82,9 @@ export default function Table() {
               <IconButton
                 variant="solid"
                 colorScheme="white"
-                icon={<TriangleUpIcon />}
                 size="xs"
-              />
-              <IconButton
-                variant="solid"
-                colorScheme="white"
-                icon={<TriangleDownIcon />}
-                size="xs"
+                icon={<ArrowUpDownIcon />}
+                onClick={() => onSort("ownerName")}
               />
             </span>
             <br />
@@ -96,14 +105,9 @@ export default function Table() {
               <IconButton
                 variant="solid"
                 colorScheme="white"
-                icon={<TriangleUpIcon />}
                 size="xs"
-              />
-              <IconButton
-                variant="solid"
-                colorScheme="white"
-                icon={<TriangleDownIcon />}
-                size="xs"
+                icon={<ArrowUpDownIcon />}
+                onClick={() => onSort("petName")}
               />
             </span>
             <br />
