@@ -19,7 +19,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { UpDownIcon } from "@chakra-ui/icons";
+import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
 
 export default function Table() {
   const [appointments, setAppointments] = useState([]);
@@ -68,8 +68,13 @@ export default function Table() {
               <IconButton
                 variant="solid"
                 colorScheme="white"
-                aria-label="Send email"
-                icon={<UpDownIcon />}
+                icon={<TriangleUpIcon />}
+                size="xs"
+              />
+              <IconButton
+                variant="solid"
+                colorScheme="white"
+                icon={<TriangleDownIcon />}
                 size="xs"
               />
             </span>
@@ -91,8 +96,13 @@ export default function Table() {
               <IconButton
                 variant="solid"
                 colorScheme="white"
-                aria-label="Send email"
-                icon={<UpDownIcon />}
+                icon={<TriangleUpIcon />}
+                size="xs"
+              />
+              <IconButton
+                variant="solid"
+                colorScheme="white"
+                icon={<TriangleDownIcon />}
                 size="xs"
               />
             </span>
