@@ -16,8 +16,10 @@ import {
   PopoverContent,
   PopoverBody,
   PopoverArrow,
+  IconButton,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import { UpDownIcon } from "@chakra-ui/icons";
 
 export default function Table() {
   const [appointments, setAppointments] = useState([]);
@@ -61,7 +63,16 @@ export default function Table() {
       <thead>
         <tr className="bg-gray-800">
           <th className="align-top px-5 py-2">
-            <span className="text-gray-200">Owner name</span>
+            <span className="text-gray-200">
+              Owner name
+              <IconButton
+                variant="solid"
+                colorScheme="white"
+                aria-label="Send email"
+                icon={<UpDownIcon />}
+                size="xs"
+              />
+            </span>
             <br />
             <Input
               size="xs"
@@ -75,7 +86,16 @@ export default function Table() {
             <span className="text-gray-200">Phone</span>
           </th>
           <th className="align-top px-5 py-2">
-            <span className="text-gray-200">Pet name</span>
+            <span className="text-gray-200">
+              Pet name
+              <IconButton
+                variant="solid"
+                colorScheme="white"
+                aria-label="Send email"
+                icon={<UpDownIcon />}
+                size="xs"
+              />
+            </span>
             <br />
             <Input
               size="xs"
