@@ -28,9 +28,9 @@ export default function Table() {
   const [petNameFilter, setPetNameFilter] = useState("");
   const [sortAscending, setSortAscending] = useState("");
   const [sortDescending, setSortDescending] = useState("");
-  const [dogFilter, setDogFilter] = useState("");
-  const [catFilter, setCatFilter] = useState("");
-  const [birdFilter, setBirdFilter] = useState("");
+  const [dogFilter, setDogFilter] = useState(true);
+  const [catFilter, setCatFilter] = useState(true);
+  const [birdFilter, setBirdFilter] = useState(true);
 
   const { isLoading, isError, data, error } = useQuery("users", getUsers, {
     onSuccess: (data) => {
@@ -60,6 +60,22 @@ export default function Table() {
     }
   }, [ownerNameFilter, petNameFilter, appointments]);
 
+  useEffect(() => {
+    let dogAppointments = [];
+    let catAppointments = [];
+    let birdAppointments = [];
+    if (dogFilter) {
+      dogAppointments = appointments.filter((item) => item.petType === "Dog");
+    }
+    if (catFilter) {
+      catAppointments = appointments.filter((item) => item.petType === "Cat");
+    }
+    if (birdFilter) {
+      birdAppointments = appointments.filter((item) => item.petType === "Bird");
+    }
+    setDisplay([...dogAppointments, ...catAppointments, ...birdAppointments]);
+  }, [dogFilter, catFilter, birdFilter]);
+
   const onSort = (key) => {
     if (sortAscending === key) {
       setSortAscending("");
@@ -71,34 +87,6 @@ export default function Table() {
       setDisplay([...display].sort((a, b) => (a[key] < b[key] ? 1 : -1)));
     }
   };
-
-  const onFilter = (key) => {
-    if (key === "Dog") {
-      if (dogFilter) {
-        setDogFilter("");
-        setDisplay(appointments);
-      } else {
-        setDogFilter(key);
-        setDisplay(appointments.filter((item) => item.petType === key));
-      }
-    } else if (key === "Cat") {
-      if (catFilter) {
-        setCatFilter("");
-        setDisplay(appointments);
-      } else {
-        setCatFilter(key);
-        setDisplay(appointments.filter((item) => item.petType === key));
-      }
-    } else if (key === "Bird") {
-      if (birdFilter) {
-        setBirdFilter("");
-        setDisplay(appointments);
-      } else {
-        setBirdFilter(key);
-        setDisplay(appointments.filter((item) => item.petType === key));
-      }
-    }
-  }
 
   if (isLoading) return <div>Appointments are loading...</div>;
   if (isError) return <div>Error: {error}</div>;
@@ -162,13 +150,25 @@ export default function Table() {
               <PopoverContent>
                 <PopoverArrow />
                 <PopoverBody>
-                  <Checkbox onChange={(e) => onFilter("Dog")} >Dog</Checkbox>
-                </PopoverBody>
-                <PopoverBody>
-                  <Checkbox onChange={(e) => onFilter("Cat")}>Cat</Checkbox>
-                </PopoverBody>
-                <PopoverBody>
-                  <Checkbox onChange={(e) => onFilter("Bird")}>Bird</Checkbox>
+                  <Checkbox
+                    onChange={() => setDogFilter(!dogFilter)}
+                    isChecked={dogFilter}
+                  >
+                    Dog
+                  </Checkbox>
+                  <Checkbox
+                    px={2}
+                    onChange={() => setCatFilter(!catFilter)}
+                    isChecked={catFilter}
+                  >
+                    Cat
+                  </Checkbox>
+                  <Checkbox
+                    onChange={() => setBirdFilter(!birdFilter)}
+                    isChecked={birdFilter}
+                  >
+                    Bird
+                  </Checkbox>
                 </PopoverBody>
               </PopoverContent>
             </Popover>
