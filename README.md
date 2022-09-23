@@ -3,6 +3,9 @@
 ### Description:
 This a pet clinic app, designed to have all of the CRUD functionalities. Made for onezero Israel.
 
+### Deployment:
+https://pet-clinic-final.vercel.app
+
 ### Features:
 * View all existing appointments
 * Create a new appointment
